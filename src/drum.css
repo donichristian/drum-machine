@@ -1,0 +1,337 @@
+  body {
+    font-size: 24px;
+    font-family: "Audiowide", monospace;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h6 {
+    font-size: 1.25rem;
+  }
+  
+  .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  .drum-machine {
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    background: #111;
+    margin: 50px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 8px 3px #333;
+  }
+  
+  .pads {
+    width: 60%;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .active-pad {
+    transform: scale(0.98); 
+    color: #fff;
+  }
+
+  .active-pad.style-one{
+    box-shadow: 1px 1px 4px 4px #FFA500, -1px -1px 4px 4px #FFA500;
+  }
+
+  .active-pad.style-two{
+    box-shadow: 1px 1px 4px 4px #1ec8ce, -1px -1px 4px 4px #1ec8ce;
+  }
+
+  .inactive-pad {
+    transform: scale(1);
+    box-shadow: none;
+    color: grey;
+  }
+  
+  .outer-drum-pad {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+  }
+  
+  .outer-drum-pad > button {
+    margin: 0;
+    border: 0;
+    border-radius: 50%;
+  }
+
+  @keyframes increaseDrumPadColorOne {
+    0% {
+        box-shadow: none;
+    }
+    50% {
+        box-shadow: 1px 1px 2px 1px #1ec8ce;
+    }
+    100% {
+        box-shadow: 1px 1px 2px 1.5px #1ec8ce;
+    }
+  }
+
+  @keyframes decreaseDrumPadColorOne {
+    0% {
+        box-shadow: 1px 1px 2px 1.5px #1ec8ce;
+    }
+    50% {
+        box-shadow: 1px 1px 2px 1px #1ec8ce;
+    }
+    100% {
+        box-shadow: none;
+        background: grey;
+    }
+  }
+
+  @keyframes increaseDrumPadColorTwo {
+    0% {
+        box-shadow: none;
+    }
+    50% {
+        box-shadow: 1px 1px 2px 1px #ffa500;
+    }
+    100% {
+        box-shadow: 1px 1px 2px 1.5px #ffa500;
+    }
+  }
+
+  @keyframes decreaseDrumPadColorTwo {
+    0% {
+        box-shadow: 1px 1px 2px 1.5px #ffa500;
+    }
+    50% {
+        box-shadow: 1px 1px 2px 1px #ffa500;
+    }
+    100% {
+        box-shadow: none;
+        background: grey;
+    }
+  }
+
+  .outer-drum-pad.kit-one.on {   
+    background: #1ec8ce;
+    animation: increaseDrumPadColorOne 2s forwards;
+  }
+
+  .outer-drum-pad.kit-two.on {
+    background: #ffa500;
+    animation: increaseDrumPadColorTwo 2s forwards;
+  }
+
+  .outer-drum-pad.kit-one.off {
+    animation: decreaseDrumPadColorOne 1s forwards;
+  }
+
+  .outer-drum-pad.kit-two.off {
+    animation: decreaseDrumPadColorTwo 1s forwards;
+  }
+
+  .drum-pad {
+    width: 97%;
+    height: 97%;
+    background: radial-gradient(#333, #070707);
+    text-align: center;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .drum-controller {
+    height: 100%;
+    width: 40%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+  }
+  
+  .label {
+    color: white;
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  .displayOn {
+    width: 200px;
+    height: auto;
+    margin: 20px auto;
+    padding: 5px;
+    font-size: 20px;
+    background: #1ec8ce;
+    border-radius: 5px;
+    color: #111;
+  }
+  
+  .displayOff {
+    width: 200px;
+    height: auto;
+    margin: 20px auto;
+    padding: 5px;
+    font-size: 20px;
+    background: #333;
+    border-radius: 5px;
+    color: #fff;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(-20%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  .displayOn h6 {
+    animation: slideIn 1s ease-in-out;
+  }
+
+  .displayOff h6 {
+    animation: fadeOut 1s ease-in-out;
+    opacity: 0;
+  }
+  
+  .speakers {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .speakers hr {
+    background: #000;
+    height: 10px;
+    margin: 15px auto;
+    border: none;
+  }
+
+  @keyframes increaseShadowColorKitOne {
+    0% {
+        box-shadow: none;
+      }
+      50% {
+        box-shadow: 2px 2px 4px #1ec8ce;
+      }
+      100% {
+        box-shadow: 2px 2px 6px #1ec8ce;
+      }
+  }
+
+  @keyframes decreaseShadowColorKitOne {
+    0% {
+      box-shadow: 2px 2px 6px #1ec8ce;
+    }
+    50% {
+      box-shadow: 2px 2px 4px #1ec8ce;
+    }
+    100% {
+      box-shadow: none;
+    }
+  }
+
+  @keyframes increaseShadowColorKitTwo {
+    0% {
+        box-shadow: none;
+      }
+      50% {
+        box-shadow: 2px 2px 4px #ffa500;
+      }
+      100% {
+        box-shadow: 2px 2px 6px #ffa500;
+      }
+  }
+
+  @keyframes decreaseShadowColorKitTWo {
+    0% {
+      box-shadow: 2px 2px 6px #ffa500;
+    }
+    50% {
+      box-shadow: 2px 2px 4px #ffa500;
+    }
+    100% {
+      box-shadow: none;
+    }
+  }
+
+  .activeSpeaker.one {
+    box-shadow: 1px 1px 2px #1ec8ce;
+    animation: increaseShadowColorKitOne 2s forwards;
+  }
+
+  .activeSpeaker.one.active {
+    box-shadow: 5px 5px 10px red;
+  }
+
+  .activeSpeaker.one.off {
+    animation: decreaseShadowColorKitOne 1s forwards;
+  }
+
+  .activeSpeaker.two {
+    box-shadow: 1px 1px 2px #ffa500;
+    animation: increaseShadowColorKitTwo 2s forwards;
+  }
+
+  .activeSpeaker.two.off {
+    animation: decreaseShadowColorKitTWo 1s forwards;
+  }
+  
+  button {
+    width: 100%;
+    height: 25px;
+    padding: 0 5px;
+    margin: 10px 0;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 5px;
+  }
+
+  .activeButton {
+    background-color: green;
+  }
+  
+  .inactiveButton {
+    background-color: grey;
+  }
+  
+  .kit-type .kit-type-first {
+    background-color: darkcyan;
+  }
+  
+  .kit-type .kit-type-second {
+    background-color: #ffa500;
+  }
+
+  .kit-type-off button {
+    background-color: grey;
+  }
+  
+  input {
+    margin: 10px;
+  }
